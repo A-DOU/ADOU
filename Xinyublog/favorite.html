@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>她</title>
+</head>
+
+<body>
+    <h1>她的界面</h1>
+    <!-- <audio id="MyLovemp3" loop>
+        <source src="/1.mp3" type="audio/mpeg">
+    </audio> -->
+    <div>
+        <video src="/1.mp3" id="MyLovemp3" style="background: url(/ji.svg); background-size: cover;" width="70"
+            height="70"></video>
+        <button class="pause">&lt;</button>
+        <button class="play">||</button>
+        <button class="load">&gt;</button>
+        <style>
+            ul {
+                padding: 0;
+            }
+
+            ul > li {
+                list-style: none;
+                float: left;
+                margin: 10px;
+                border: 1px solid #ccc;
+            }
+        </style>
+    </div>
+
+    <div>
+        <h3>Picture</h3>
+        <ul>
+            <li><a href=""><img src=" /cat.png" width="226" height="226" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+            <li><a href=""><img src=" /cat.png" width="100" height="100" alt=""></a></li>
+        </ul>
+    </div>
+    <script>
+
+        let MyLovemp3 = document.querySelector("#MyLovemp3");
+        let play = document.querySelector(".play");
+        let pause = document.querySelector(".pause");
+        let load = document.querySelector(".load");
+
+        let audio = document.createElement('audio') //生成一个audio元素 
+        audio.src = "1.mp3" //音乐的路径 
+        let time, minutes, seconds;
+
+        audio.addEventListener("canplay", function () {
+            time = parseInt(audio.duration);
+        });
+
+
+        MyLovemp3.onplay = function () {
+            console.log("开启音乐播放");
+            let result = setInterval(() => {
+                time--;
+
+                minutes = parseInt(time / 60, 10);
+                seconds = time % 60;
+
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+
+                console.log(minutes + ":" + seconds);
+                if (time <= 0) {
+                    clearInterval(result);
+                }
+            }, 1000);
+
+        };
+
+        let flag = true;
+        play.onclick = function () {
+
+            if (flag) {
+                MyLovemp3.play();
+                flag = false;
+            } else {
+                MyLovemp3.pause();
+                flag = true;
+            }
+        };
+
+        // pause.onclick = function () {
+        //     MyLovemp3.pause();
+        // };
+
+        // load.onclick = () => {
+        //     MyLovemp3.load();
+        //     MyLovemp3.play();
+        // };
+
+        pause.onclick = function () {
+            MyLovemp3.src = "0.mp3";
+            MyLovemp3.play();
+            flag = false;
+        };
+
+        load.onclick = () => {
+            MyLovemp3.src = "2.mp3";
+            MyLovemp3.play();
+            flag = false;
+        };
+    </script>
+</body>
+
+</html>

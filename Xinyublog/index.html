@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新宇吧</title>
+
+    <style>
+        ::-webkit-scrollbar-track-piece {
+            background-color: #f8f8f8;
+        }
+
+        ::-webkit-scrollbar {
+            height: 9px;
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #fdcbbe;
+            background-clip: padding-box;
+            min-height: 28px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #ffa4c3;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            cursor: url(favicon.ico), auto;
+            overflow-x: hidden;
+        }
+
+        .home-img {
+            width: 100%;
+            height: 1024px;
+            object-fit: cover;
+        }
+
+        .head-top {
+            position: absolute;
+            top: 0;
+            right: 40px;
+            text-align: right;
+            width: 100%;
+            height: 66px;
+            line-height: 66px;
+        }
+
+        .head-top>a {
+            text-decoration: none;
+            font-size: 20px;
+            font-family: "宋体";
+            margin-right: .5rem;
+            color: rgb(112, 112, 112);
+        }
+
+        .head-top>a:hover {
+            color: rgb(247, 140, 53);
+        }
+
+        .head-bgc {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 66px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .headImg-center {
+            display: flex;
+            align-items: center;
+            height: 66px;
+            margin-left: 50px;
+        }
+
+        .Word-output {
+            position: absolute;
+            top: 330px;
+            width: 107%;
+            margin: 0 auto;
+            text-align: center;
+            margin-left: -90px;
+        }
+
+        #infor {
+            width: 100%;
+            height: 30px;
+            padding: 0;
+            border: 0;
+            padding: 5px 15px;
+            outline: none;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 5px;
+            color: rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        #profile-body {
+            position: relative;
+            width: 100%;
+            min-height: 1024px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .downPro {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            margin-left: -15px;
+            color: #fff;
+            opacity: .5;
+            transition: ease-in all 1s;
+        }
+
+        #cat {
+            position: absolute;
+            top: -25px;
+            right: 70px;
+        }
+
+        .cat-img {
+            position: absolute;
+            top: 100px;
+            left: -25px;
+            transition: .2s;
+        }
+
+        .person {
+            width: 200px;
+            min-height: 400px;
+            padding: 1rem;
+            float: left;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border-top: 1px solid rgb(230, 230, 230);
+            border-left: 1px solid rgb(230, 230, 230);
+            box-shadow: 5px 5px 5px -5px rgb(133 133 133);
+            margin: 100px 10px 10px 20px;
+            background-color: #fafafa;
+        }
+
+        #cat :hover {
+            transform: scale(1.09);
+        }
+
+        .alone,
+        .alone a {
+            font-family: "宋体";
+            font-size: 14px;
+            color: rgb(126, 126, 126);
+        }
+
+        .alone strong {
+            font-size: 16px;
+        }
+
+
+        .page-music {
+            position: fixed;
+            bottom: 0px;
+        }
+
+        .page-music #musicBtn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 90px;
+            height: 90px;
+            /* background-color: rgba(222, 128, 91, 0.3); */
+        }
+
+        #Music {
+            transition: .5s;
+
+        }
+
+        #profile-body>.content {
+            width: 520px;
+            max-height: 1460px;
+            float: left;
+            padding: 1rem;
+            float: left;
+            overflow-y: auto;
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin: 100px 30px 0 20px;
+            border-top: 1px solid rgb(230, 230, 230);
+            border-left: 1px solid rgb(230, 230, 230);
+            box-shadow: 5px 5px 5px -5px rgb(133 133 133);
+            background-color: #fafafa;
+        }
+
+        .right {
+            width: 200px;
+            /* min-height: 900px; */
+            float: left;
+            box-sizing: border-box;
+            margin-top: 100px;
+
+        }
+
+        .notice {
+            width: 200px;
+            min-height: 150px;
+            padding: 1rem;
+            font-family: "宋体";
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            border-top: 1px solid rgb(230, 230, 230);
+            border-left: 1px solid rgb(230, 230, 230);
+            box-shadow: 5px 5px 5px -5px rgb(133 133 133);
+            background-color: #fafafa;
+        }
+
+        .go-online {
+            width: 200px;
+            padding: .1rem 1rem;
+            font-family: "宋体";
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            border-top: 1px solid rgb(230, 230, 230);
+            border-left: 1px solid rgb(230, 230, 230);
+            box-shadow: 5px 5px 5px -5px rgb(133 133 133);
+            background-color: #fafafa;
+        }
+
+        .go-text {
+            text-align: center;
+        }
+
+        .notice>p>a {
+            font-size: 14px;
+            font-weight: 700;
+            font-family: "kaiti";
+            color: rgb(84, 157, 190);
+        }
+
+        .go-online>p>strong {
+            color: rgb(245, 140, 128);
+            font-size: 12px;
+        }
+
+        h3 {
+            margin: 0;
+            font-family: "宋体";
+        }
+
+        .resume {
+            width: 200px;
+            max-height: 800px;
+            padding: 1rem;
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow-y: auto;
+            border-top: 1px solid rgb(230, 230, 230);
+            border-left: 1px solid rgb(230, 230, 230);
+            box-shadow: 5px 5px 5px -5px rgb(133 133 133);
+            background-color: #fafafa;
+        }
+
+        .item {
+            font-family: "宋体";
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .item>a {
+            /* text-decoration: ; */
+            color: #777;
+        }
+
+        .classify {
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            position: relative;
+            height: 312px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0);
+            background: url("webp.webp") no-repeat;
+            background-size: cover;
+        }
+
+        #jsi-flying-fish-container {
+            margin-bottom: 0px;
+            position: absolute;
+            bottom: -10px;
+            width: 100%;
+            height: inherit;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #sidebar_search_box input[type=text] {
+                width: calc(100% - 24px)
+            }
+        }
+
+        .sidebar-foot {
+            width: 100%;
+            margin: 90px auto;
+            text-align: center;
+            color: #fff;
+        }
+
+        .head-fixed {
+            width: 100%;
+            z-index: 1200;
+        }
+
+        .on {
+            position: fixed;
+            top: 0;
+        }
+
+
+        .week-item {
+            display: inline-block;
+            width: 20px;
+            padding: 0 5px;
+            font-size: 14px;
+            font-family: "宋体";
+            /* border: 1px solid rgb(182, 182, 182); */
+        }
+
+        .date-item {
+            display: inline-block;
+            width: 20px;
+            padding: 0 5px;
+            font-size: 12px;
+        }
+
+        .wrapper {
+            width: 167px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .year-line {
+            display: flex;
+            width: 90%;
+            color: #555;
+            font-size: 12px;
+            align-items: center;
+            margin: 1.2rem auto;
+            justify-content: space-between;
+        }
+
+        .date-line>span,
+        #weekLine>span {
+            padding: 0;
+        }
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+    <div>
+
+        <div>
+            <img class="home-img" src="e77bfba0-b13a-4e27-918b-eb32356c115e.jpg@!1920" alt="">
+        </div>
+        <div class="head-fixed">
+            <div class="head-bgc">
+                <div class="headImg-center">
+                    <img src="15572011211496473.svg" width="40" height="40" alt="">XINGYU
+                </div>
+            </div>
+            <div class="head-top">
+                <a href="#Profile"><img src="/dangan.svg" width="16" height="16" alt="">档案</a>
+                <a href="/favorite.html"><img src="/aixin.svg" width="16" height="16" alt="">她</a>
+                <a href="#Atlas"><img src="/zhaopian.svg" width="16" height="16" alt="">图册</a>
+                <a href="#Chicken-soup"><img src="/ji.svg" width="16" height="16" alt="">毒鸡汤</a>
+                <a href="#New-vent"><img src="/bi.svg" width="16" height="16" alt="">手札记</a>
+            </div>
+        </div>
+
+        <div class="Word-output">
+            <input id="infor" type="text" readonly>
+        </div>
+        <div>
+            <a href="#Profile">
+                <img class="downPro" src="/jiantou_xia.svg" width="30" height="30" alt="">
+            </a>
+        </div>
+    </div>
+    <div id="profile-body">
+        <a href="" name="Profile"></a>
+        <div class="person">
+            <div class="alone">
+                <P><strong>昵称:</strong> <a href="javascript:void(0)">XINGYU</a> </P>
+                <P><strong>诞生:</strong> <a href="javascript:void(0)">2001年02月29日</a></P>
+                <p><strong>爱好:</strong> <a href="javascript:void(0)">游泳、足球、踏青、英雄联盟、王者荣耀、象棋</a></p>
+                <p><strong>电影:</strong> <a href="javascript:void(0)">这个杀手不太冷、怦然心动、复仇者联盟</a></p>
+                <p><strong>动漫:</strong> <a href="javascript:void(0)">秒速五厘米</a></p>
+                <p><strong>吐槽自己:</strong> <a href="javascript:void(0)">正能量爆棚, 与生俱来的, 有时会一个伤感, 因为喜欢伤感。呆呆傻傻, 哇咔咔,
+                        发现自己越来越爱吃美食了。不喜欢扎堆, 喜好自己一个人自娱自乐! 当然, 你要跟我一起玩, 我自然带你一起嗨。</a></p>
+                <p>
+                    <strong>这里可以放一张微信二维码图片</strong>
+                </p>
+            </div>
+
+        </div>
+        <div class="content">
+            <h3>填充时间线</h3>
+            <hr />
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+            <div>需要显示的数据源</div>
+        </div>
+        <div class="right">
+            <div class="notice">
+                <h3>公告</h3>
+                <hr />
+                <p><a href="javascript:void(0)">我听别人说这世界上有一种鸟是没有脚的, 它只能一直飞呀飞呀, 飞累了就在风里面睡觉, 这种鸟一辈子只能下地一次,
+                        那一次就是它死亡的时候。</a></p>
+            </div>
+
+            <div class="go-online">
+                <p>XINGYU Web上线:</p>
+                <p class="go-text"><strong>3年1月3天14时23分53秒</strong></p>
+                <div class="wrapper">
+                    <div class="year-line" style="text-align: center;">
+                        <span id="preMonth" class="year-prev"><img src="/jiantou-zuo.svg" width="18" height="18" alt=""></span>
+                        <div><span id="nowYear" class="year-now"></span>年<span id="nowMonth"></span>月<span id="nowDate"></span>日
+                        </div>
+                        <span id="nextMonth" class="year-next"><img src="/jiantou-you.svg" width="18" height="18" alt=""></span>
+                    </div>
+                    <div id="weekLine" class="week-line"></div>
+                    <div id="dateWrap" class="date-wrap"></div>
+                </div>
+            </div>
+            <div class="resume">
+                <div class="classify">
+                    <div style="display: flex;align-items: center;">
+                        <img src="/cat.png" width="30" height="30" alt="">手札集
+                    </div>
+                    <hr />
+                    <ul style="padding: 0 13px;margin: 0;">
+                        <li class="item"><a href="">第1条数据</a></li>
+                        <li class="item"><a href="">第2条数据</a></li>
+                        <li class="item"><a href="">第3条数据, 突出显示看看</a></li>
+                        <li class="item"><a href="">第4条数据</a></li>
+                        <li class="item"><a href="">第5条数据</a></li>
+                        <li class="item"><a href="">第6条数据</a></li>
+                        <li class="item"><a href="">第7条数据</a></li>
+                        <li class="item"><a href="">第8条数据</a></li>
+                        <li class="item"><a href="">第9条数据</a></li>
+                        <li class="item"><a href="">第10条数据</a></li>
+                    </ul>
+                </div>
+                <div class="classify">
+                    <div style="display: flex;align-items: center;">
+                        <img src="/cat.png" width="30" height="30" alt="">个人笔记
+                    </div>
+                    <hr />
+                    <ul style="padding: 0 13px;margin: 0;">
+                        <li class="item"><a href="">我是第{001}条笔记</a></li>
+                        <li class="item"><a href="">我是第{002}条笔记</a></li>
+                        <li class="item"><a href="">我是第{003}条笔记</a></li>
+                        <li class="item"><a href="">我是第{004}条笔记</a></li>
+                        <li class="item"><a href="">我是第{005}条笔记</a></li>
+                        <li class="item"><a href="">我是第{006}条笔记</a></li>
+                        <li class="item"><a href="">我是第{007}条笔记</a></li>
+                        <li class="item"><a href="">我是第{008}条笔记</a></li>
+                        <li class="item"><a href="">我是第{009}条笔记</a></li>
+                        <li class="item"><a href="">我是第{010}条笔记</a></li>
+                        <li class="item"><a href="">我是第{011}条笔记</a></li>
+                        <li class="item"><a href="">我是第{012}条笔记</a></li>
+                        <li class="item"><a href="">我是第{013}条笔记</a></li>
+                        <li class="item"><a href="">我是第{014}条笔记</a></li>
+                        <li class="item"><a href="">我是第{015}条笔记</a></li>
+                        <li class="item"><a href="">我是第{016}条笔记</a></li>
+                        <li class="item"><a href="">我是第{017}条笔记</a></li>
+                        <li class="item"><a href="">我是第{018}条笔记</a></li>
+                        <li class="item"><a href="">我是第{019}条笔记</a></li>
+                        <li class="item"><a href="">我是第{020}条笔记</a></li>
+                    </ul>
+                </div>
+                <div class="classify">
+                    <div style="display: flex;align-items: center;">
+                        <img src="/cat.png" width="30" height="30" alt="">排行榜
+                    </div>
+                    <hr />
+                    <ul style="padding: 0 13px;margin: 0;">
+                        <li class="item"><a href="">我排行是第01名</a></li>
+                        <li class="item"><a href="">我排行是第02名</a></li>
+                        <li class="item"><a href="">我排行是第03名</a></li>
+                        <li class="item"><a href="">我排行是第04名</a></li>
+                        <li class="item"><a href="">我排行是第05名</a></li>
+                        <li class="item"><a href="">我排行是第06名</a></li>
+                        <li class="item"><a href="">我排行是第07名</a></li>
+                        <li class="item"><a href="">我排行是第08名</a></li>
+                        <li class="item"><a href="">我排行是第09名</a></li>
+                        <li class="item"><a href="">我排行是第10名</a></li>
+                        <li class="item"><a href="">我排行是第11名</a></li>
+                        <li class="item"><a href="">我排行是第12名</a></li>
+                        <li class="item"><a href="">我排行是第13名</a></li>
+                        <li class="item"><a href="">我排行是第14名</a></li>
+                        <li class="item"><a href="">我排行是第15名</a></li>
+                        <li class="item"><a href="">我排行是第16名</a></li>
+                        <li class="item"><a href="">我排行是第17名</a></li>
+                        <li class="item"><a href="">我排行是第18名</a></li>
+                        <li class="item"><a href="">我排行是第19名</a></li>
+                        <li class="item"><a href="">我排行是第20名</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="cat">
+            <a href="javascript:void(0)" onclick="catClick()">
+                <img class="cat-img" src="/cat.png" width="70" height="70" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="page-music">
+        <!-- <iframe id="Music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=110 height=100
+            src="//music.163.com/outchain/player?type=0&id=5007871100&auto=0&height=430"></iframe> -->
+
+
+        <!-- <iframe id="Music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=110 height=100
+            src="//music.163.com/outchain/player?type=0&id=5321532436&auto=1&height=430"></iframe> -->
+
+        <!-- <iframe id="Music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=110 height=100 src="//music.163.com/outchain/player?type=0&id=5361959265&auto=1&height=430"></iframe> -->
+
+        <iframe id="Music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=110 height=100
+            src="//music.163.com/outchain/player?type=0&id=5363644086&auto=1&height=430"></iframe>
+        <div id="musicBtn"></div>
+    </div>
+    <div class="footer">
+        <div class="sidebar-foot">
+            <p>Copyright &copy 2021 Xingyu. All Rights Reserved.</p>
+            <p>Using Vue technology to build</p>
+        </div>
+        <div id="page_end_html">
+            <!-- 底部加了小鱼<・)))><<~ -->
+            <div id="jsi-flying-fish-container" class="container"><canvas width="100%"></canvas></div>
+        </div>
+    </div>
+</body>
+
+<script src="./jquery.js"></script>
+<script src="/fish.js"></script>
+
+<!-- 开始界面显示的input -->
+<script>
+    function inputShow() {
+        let arrWord = ["贤贤易色；事父母，能竭其力；", "事君，能致其身；", "与朋友交，言而有信。", "虽曰未学，吾必谓之学矣。", "其为人也孝弟而好犯上者，鲜矣；", "不好犯上而好作乱者，未之有也。", "君子务本，本立而道生。", "孝弟也者，其为仁之本与!", "吾不与祭，如不祭。", "攻乎异端，斯害也已！", "非其鬼而祭之，谄也；", "见义不为，无勇也。", "君子周而不比，小人比而不周。", "其为人也孝弟而好犯上者，鲜矣；", "不好犯上而好作乱者，未之有也。", "君子务本，本立而道生。", "孝弟也者，其为仁之本与!", "学而时习之，不亦说乎？", "有朋自远方来，不亦乐乎？", "人不知而不愠，不亦君子乎？", "巧言令色，鲜矣仁！", "君子不重则不威，学则不固。", "主忠信，无友不如己者，过则勿惮改。", "道之以政，齐之以刑，民免而无耻。", "道之以德，齐之以礼，有耻且格。", "父母唯其疾之忧。", "君子不器。"];
+
+        let newArray = [];
+
+        let inputNode = document.querySelector("#infor");
+
+        for (let i = 0; i < arrWord.length; i++) {
+            let obj = {};
+
+            let job = [];
+            for (let j = 0; j < arrWord[i].length; j++) {
+                job.push(arrWord[i][j]);
+            }
+
+            obj.digit = arrWord[i].length;
+            obj.name = job;
+
+            newArray.push(obj);
+        }
+
+        let index = 0;
+        let indexTwo = 0;
+
+        setInterval(() => {
+            if (index >= newArray[indexTwo].digit) {
+                inputNode.value = "";
+                index = 0;
+                indexTwo++;
+            }
+
+            if (indexTwo >= newArray.length) {
+                indexTwo = 0;
+            }
+
+            inputNode.value += newArray[indexTwo].name[index];
+            index++;
+        }, 400);
+
+    }
+
+    inputShow();
+
+    function downMove() {
+        let downBtn = document.querySelector(".downPro");
+        let downIndex = 80;
+        setInterval(() => {
+            if (downIndex <= 40) {
+                downIndex = 80;
+            }
+
+            downBtn.style.bottom = downIndex + "px";
+            downIndex -= 35;
+        }, 800);
+
+    };
+
+    downMove();
+
+    let profileBody = document.querySelector("#profile-body");
+
+
+    let flag = true;
+
+    function catClick() {
+        let catImg = document.querySelector(".cat-img");
+        let catHr = document.querySelector(".cat-hr");
+
+        if (flag) {
+            profileBody.style.backgroundColor = "#fde6e0";
+            flag = false;
+        }
+        else {
+            profileBody.style.backgroundColor = "#fff";
+            flag = true;
+        }
+
+        catImg.style.top = 100 + "px";
+        catImg.onmouseout = function () {
+            catImg.style.top = 100 + "px";
+            catImg.onmousemove = null;
+
+
+        }
+    }
+</script>
+
+<!-- 网易音乐显示 -->
+<script>
+
+    let musicBtn = document.querySelector("#musicBtn");
+
+    let flagValue = true;
+    musicBtn.onclick = function () {
+        let music = document.querySelector("#Music");
+
+        if (flagValue) {
+            music.style.width = "330px";
+            music.style.height = "450px";
+            flagValue = false;
+        } else {
+            music.style.width = "110px";
+            music.style.height = "100px";
+            flagValue = true;
+        }
+    }
+</script>
+
+<!-- /* 鼠标点击文字特效 */ -->
+<script>
+    var f_idx = 0;
+    var c_idx = 0;
+    jQuery(document).ready(function ($) {
+        $("body").click(function (e) {
+            var font = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+            var color = new Array('#ff0000', '#eb4310', '#f6941d', '#fbb417', '#ffff00', '#cdd541', '#99cc33', '#3f9337', '#219167', '#239676', '#24998d', '#1f9baa', '#0080ff', '#3366cc', '#333399', '#003366', '#800080', '#a1488e', '#c71585', '#bd2158');
+            var $i = $("<span />").text(font[f_idx]);
+            f_idx = (f_idx + 1) % font.length;
+            c_idx = (c_idx + 1) % color.length;
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 99,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": color[c_idx]
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            }, 1500, function () {
+                $i.remove();
+            });
+        });
+    });
+
+
+
+        // (function (e) {
+        //     // 点击事件触发生生元素等一系列动作的初始状态
+        //     var bombFlag = true;
+        //     // body节点
+        //     var elBody = document.getElementsByTagName("body")[0];
+        //     // 初始化文字数组下标
+        //     var a_idx = 0;
+        //     elBody.onclick = function (e) {
+        //         if (bombFlag) {
+        //             // 坐标
+        //             var ev = e || event,//   IE浏览器兼容
+        //                 x = ev.clientX,
+        //                 y = ev.clientY;
+        //             // 随机产生文字颜色
+        //             var color1 = Math.floor((Math.random() * 255));
+        //             var color2 = Math.floor((Math.random() * 255));
+        //             var color3 = Math.floor((Math.random() * 255));
+        //             // 初始化定时器
+        //             var _timer = null;
+        //             // 文字数组
+        //             var a = new Array("乐观", "❤", "积极", "向上", "自由", "正能量", "(*^▽^*)", "元气满满", "开心", "快乐", "善良", "可爱", "暴富", "暴瘦", "❤");
+        //             // 创建节点
+        //             var elSpan = document.createElement("span");
+        //             // 随机节点内容
+        //             a_idx = (a_idx + 1) % a.length;
+        //             // 添加内容到节点
+        //             elSpan.innerHTML = a[a_idx];
+        //             // 初始节点化样式
+        //             elSpan.style.zIndex = 999;
+        //             elSpan.style.position = "fixed";
+        //             elSpan.style.top = y - 20 + "px",
+        //                 elSpan.style.left = x - 10 + "px";
+        //             elSpan.style.color = 'rgb(' + color1 + ',' + color2 + ',' + color3 + ')';
+        //             elSpan.style.fontWeight = "bold";
+        //             elSpan.className = "floatSpan";
+        //             // 将元素追加到body中
+        //             elBody.appendChild(elSpan);
+        //             // 获取追加后的节点
+        //             var el = document.getElementsByClassName("floatSpan")[0];
+        //             // 初始化需要渐变的变量值
+        //             // top值
+        //             var cur_y = y - 20;
+        //             // 透明度
+        //             var cur_opacity = 1;
+        //             // 字体大小
+        //             var cur_fontSize = 14;
+        //             // 创建定时器
+        //             _timer = setInterval(function () {
+        //                 // 渐变变量
+        //                 cur_y += -10;
+        //                 cur_opacity -= 0.1;
+        //                 cur_fontSize += 1;
+        //                 // 渐变变量赋值（因为有单位的关系  所以不能直接加减  通过中间变量来赋值）
+        //                 el.style.top = cur_y + "px";
+        //                 el.style.opacity = cur_opacity;
+        //                 el.style.fontSize = cur_fontSize + "px";
+        //             }, 50);
+        //             // 时间到了之后清空定时器  清除刚才添加的元素  并且恢复点击触发事件
+        //             setTimeout(function () {
+        //                 clearInterval(_timer);
+        //                 elBody.removeChild(el);
+        //                 bombFlag = true;
+        //             }, 500);
+        //         }
+        //         // 暂停点击触发事件
+        //         bombFlag = false;
+        //     };
+        // })();
+
+
+</script>
+
+<!-- 监听滚动条滚动 -->
+<script>
+    window.onscroll = function () {
+        var t = document.documentElement.scrollTop || document.body.scrollTop; //变量t就是滚动条滚动时，到顶部的距离
+
+        let headFixed = document.querySelector(".head-fixed");
+        if (t >= 400) {     //当拖动到距离顶部100px处时，左边导航固定，不随滚动条滚动
+            headFixed.classList.add("on");
+        } else {
+            headFixed.classList.remove("on");
+        }
+    }
+</script>
+
+
+<script>
+    // 1.为了获得每个月的日期有多少，我们需要判断 平年闰年[四年一闰，百年不闰，四百年再闰]
+    const isLeapYear = (year) => {
+        return (year % 400 === 0) || (year % 100 !== 0 && year % 4 === 0);
+    };
+    // 2.获得每个月的日期有多少，注意 month - [0-11]
+    const getMonthCount = (year, month) => {
+        let arr = [
+            31, null, 31, 30,
+            31, 30, 31, 31,
+            30, 31, 30, 31
+        ];
+        let count = arr[month] || (isLeapYear(year) ? 29 : 28);
+        return Array.from(new Array(count), (item, value) => value + 1);
+    };
+    // 3.获得某年某月的 1号 是星期几，这里要注意的是 JS 的 API-getDay() 是从 [日-六](0-6)，返回 number
+    const getWeekday = (year, month) => {
+        let date = new Date(year, month, 1);
+        return date.getDay();
+    };
+    // 4.获得上个月的天数
+    const getPreMonthCount = (year, month) => {
+        if (month === 0) {
+            return getMonthCount(year - 1, 11);
+        } else {
+            return getMonthCount(year, month - 1);
+        }
+    };
+    // 5.获得下个月的天数
+    const getNextMonthCount = (year, month) => {
+        if (month === 11) {
+            return getMonthCount(year + 1, 0);
+        } else {
+            return getMonthCount(year, month + 1);
+        }
+    };
+
+    let weekStr = '日一二三四五六';
+    weekArr = weekStr.split('').map(item => item);
+
+    let weekDomStr = '';
+    let oFragWeek = document.createDocumentFragment();
+    weekArr.forEach(item => {
+        let oSpan = document.createElement('span');
+        let oText = document.createTextNode(item);
+        oSpan.appendChild(oText);
+        oSpan.classList.add('week-item');
+        oFragWeek.appendChild(oSpan);
+    });
+    let weekWrap = document.getElementById('weekLine');
+    weekWrap.appendChild(oFragWeek);
+
+    // 这里获得我们第一次的 数据 数组
+    const updateCalendar = (year, month, day) => {
+        if (typeof year === 'undefined' && typeof month === 'undefined' && typeof day === 'undefined') {
+            let nowDate = new Date();
+            year = nowDate.getFullYear();
+            month = nowDate.getMonth();
+            day = nowDate.getDate();
+        }
+
+        // 更新一下顶部的年月显示
+        document.getElementById('nowYear').innerHTML = year;
+        document.getElementById('nowMonth').innerHTML = month + 1;
+        document.getElementById('nowDate').innerHTML = day;
+        // 生成日历数据，上个月剩下的的 x 天 + 当月的 28（平年的2月）或者29（闰年的2月）或者30或者31天 + 下个月的 y 天 = 42
+        let res = [];
+        let currentMonth = getMonthCount(year, month);
+        let preMonth = getPreMonthCount(year, month);
+        let nextMonth = getNextMonthCount(year, month);
+        let whereMonday = getWeekday(year, month);
+        if (whereMonday === 0) {
+            whereMonday = 7
+        }
+
+        let preArr = preMonth.slice(-1 * whereMonday)
+        let nextArr = nextMonth.slice(0, 42 - currentMonth.length - whereMonday);
+        res = [].concat(preArr, currentMonth, nextArr);
+        let startIndex = preArr.length - 1;
+        let endIndex = preArr.length + currentMonth.length;
+
+        let hadDom = document.getElementsByClassName('date-item');
+        if (hadDom && hadDom.length) {
+
+
+            let domArr = document.getElementsByClassName('date-item');
+            for (let i = 0; i < domArr.length; i++) {
+                domArr[i].innerHTML = res.shift();
+
+                if (i > startIndex && i < endIndex) {
+                    for (let j = (startIndex + 1); j < endIndex; j++) {
+                        domArr[j].style.color = "#555";
+                        domArr[(day+startIndex)].style.color = "#ff6700";
+                    }
+                }
+                domArr[i].style.color = "#ccc";
+            }
+        } else {
+            let str = '';
+            for (let i = 0; i < 6; i++) {
+                str += '<div class="date-line">';
+                for (let j = 0; j < 7; j++) {
+                    str += `<span class='date-item'>${res.shift()}</span>`;
+
+                    if (j === 6) {
+                        str += '</div>';
+                    }
+                }
+            }
+
+            document.getElementById('dateWrap').innerHTML = str;
+            document.getElementById('dateWrap').style.color = "#ccc";
+
+        }
+    };
+
+    updateCalendar();
+    // 添加上一月，下一月事件
+    let oPreButton = document.getElementById('preMonth');
+    let oNextButton = document.getElementById('nextMonth');
+
+    function Prev(digit) {
+        let currentYear = +document.getElementById('nowYear').textContent;
+        let currentMonth = +document.getElementById('nowMonth').textContent - digit;
+        let currentDate = +document.getElementById('nowDate').textContent;
+        if (currentMonth === 0) {
+            updateCalendar(currentYear - 1, 11, currentDate);
+        } else {
+            updateCalendar(currentYear, currentMonth - 1, currentDate);
+        }
+    }
+
+    Prev(0);
+
+    oPreButton.addEventListener('click', function () {
+        Prev(1);
+    });
+
+    oNextButton.addEventListener('click', function () {
+        let currentYear = +document.getElementById('nowYear').textContent;
+        let currentMonth = +document.getElementById('nowMonth').textContent - 1;
+        let currentDate = +document.getElementById('nowDate').textContent;
+        if (currentMonth === 11) {
+            updateCalendar(currentYear + 1, 0, currentDate);
+        } else {
+            updateCalendar(currentYear, currentMonth + 1, currentDate);
+        }
+    });
+</script>
+</html>
